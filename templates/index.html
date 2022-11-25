@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style type="text/css">
+        :root {
+            --base: #c70039;
+            --base-mild: #A1002E;
+
+        }
+
+        body {
+            background: var(--base-mild);
+            color: white;
+        }
+
+        div.cards {
+            height: 95%;
+            /*width: 25%;
+            height: 100%;
+            margin: 100px auto;*/
+            border: 2px solid var(--base);
+            font-style: var(--base);
+            /*border: 20px solid white;*/
+            padding: 10px;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h4 {
+            text-transform: uppercase;
+            letter-spacing: 0.2;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .site-header {
+            text-align: center;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
+            height:fit-content;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .cards {
+            margin: 10px;
+        }
+
+        .points {
+            font-size: xxx-large;
+            margin: 25px;
+        }
+
+        .add-points-container {
+            display: flex;
+            flex-flow: row wrap;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-points {
+            font-size: small;
+            background-color: var(--base);
+            height: 25px;
+            width: 50px;
+            margin: 15px;
+            line-height: 25px;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 5px;
+        }
+
+        .add-points:hover {
+            background: none;
+            border: 1px solid var(--base);
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <h4 class="site-header"> Pointsinator</h4>
+        <div class="cards-container">
+
+            {% for user in boards['users'] %}
+            <div class="cards" style = " width: {{100/boards['users']|length -5}}%">
+                {{user}}
+                <div class="points">
+                    {{boards.points[user]}}
+                </div>
+                <div class="add-points-container">
+                    {% for option in options %}
+                    <div class="add-points">
+                        {{option}}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+
+</html>
