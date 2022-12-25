@@ -12,7 +12,7 @@ points['Paddy'] = 10
 points['Harry'] = 10
 points['Puffs'] = 5
 board['points'] = points
-options = [1,2,3,5,10,15,20,50,100,'1000 !']
+options = ['+1','+2','+3','+5','+10','+15','+20','+50','+100','+1000 !']
 @app.route("/")
 def index():
     # url = random.choice(images)
